@@ -15,10 +15,13 @@ class UserController extends AbstractController
     /**
      * @Route("/browse", name="browse")
      */
-    public function browse(UserRepository $userRepository): Response
+    public function browse(UserRepository $userRepository, $user): Response
     {
+        $user = "test";
         return $this->render('admin/user/browse.html.twig', [
             'users' => $userRepository->findAll(),
         ]);
     }
+
+
 }
