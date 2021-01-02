@@ -42,6 +42,8 @@ class Gif
     public function __construct()
     {
         $this->tagId = new ArrayCollection();
+        $this->createdAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
     }
 
     public function getId(): ?int
