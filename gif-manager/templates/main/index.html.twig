@@ -3,5 +3,18 @@
 {% block title %}Gifs Manager{% endblock %}
 
 {% block body %}
+    <div class="container">
+        <h1 class="m-3">Tous les gifs</h1>
+        <div class="row">
+            {% for gif in gifs %}
+                <div class="col-4">
+                        <div class="card border-info mb-3">
+                            <img class="card-img-top" src="{{ gif }}" alt="Card image cap">
+                            <div class="card-body"> un tag </div>
+                        </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 
 {% endblock %}
