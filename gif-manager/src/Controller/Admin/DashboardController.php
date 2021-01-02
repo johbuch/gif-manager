@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Gif;
 use App\Entity\Tag;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Menu\SectionMenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use Symfony\Component\HttpFoundation\Response;
@@ -31,5 +32,8 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Gif', 'fas fa-list', Gif::class);
         yield MenuItem::linkToCrud('Tags', 'fas fa-list', Tag::class);
+
+        yield MenuItem::section('Déconnexion');
+        yield MenuItem::linkToLogout('Se déconnecter', 'fa fa-exit');
     }
 }
