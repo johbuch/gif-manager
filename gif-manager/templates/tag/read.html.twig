@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des tags{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="m-3">{{ tag.name }}</h1>
+        <h2>Les gifs qui ont ce tag</h2>
+        <div class="row">
+            {% for gif in tag.gifs %}
+                <div class="col-4">
+                    <div class="card border-info mb-3">
+                        <img class="card-img-top" src="{{ gif.name }}" alt="Card image cap">
+                        <div class="card-body">
+                            <div>ID : {{ gif.id }}</div>
+                            <div class="gif-name"><a href="{{ gif.name }}" target="_blank">{{ gif.name }}</a></div>
+                            {# on fait apparaitre les tags liés aux gifs #}
+                            {% for tags in gif.tagId %}
+                                <span class="badge badge-pill badge-secondary">{{ tags }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
