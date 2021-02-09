@@ -19,6 +19,18 @@ class GifRepository extends ServiceEntityRepository
         parent::__construct($registry, Gif::class);
     }
 
+    /**
+     * @return Gif[] Retourne un tableau d'objets Gifs ordonné par le plus récent
+     */
+    public function findAllGifsOrderByDesc(): array
+    {
+        return $this->createQueryBuilder('g')
+            ->orderBy('g.id', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     // /**
     //  * @return Gif[] Returns an array of Gif objects
     //  */

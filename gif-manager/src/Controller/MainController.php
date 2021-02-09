@@ -18,7 +18,7 @@ class MainController extends AbstractController
     public function index(GifRepository $gifRepository): Response
     {
         return $this->render('main/index.html.twig', [
-            'gifs' => $gifRepository->findAll(),
+            'gifs' => $gifRepository->findAllGifsOrderByDesc(),
         ]);
     }
 }

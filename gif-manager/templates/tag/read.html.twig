@@ -4,10 +4,9 @@
 
 {% block body %}
     <div class="container">
-        <h1 class="m-3">{{ tag.name }}</h1>
-        <h2>Les gifs qui ont ce tag</h2>
+        <h1 class="m-3">Les gifs qui ont le tag "{{ tag.name }}"</h1>
         <div class="row">
-            {% for gif in tag.gifs %}
+            {% for gif in tag.gifs|sort((a,b) => b.id <=> a.id) %}
                 <div class="col-4">
                     <div class="card border-info mb-3">
                         <img class="card-img-top" src="{{ gif.name }}" alt="Card image cap">
