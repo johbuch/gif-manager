@@ -31,6 +31,18 @@ class GifRepository extends ServiceEntityRepository
         ;
     }
 
+    public function findGifsWithSearchBar($searchTerm)
+    {
+        return $this->createQueryBuilder('g')
+            ->innerJoin('g.tagId', 't')
+            ->andWhere('g.name LIKE :searchTerm OR t.name LIKE :searchTerm')
+            ->setParameter('searchTerm', '%' . $searchTerm . '%')
+            ->orderBy('g.id', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     // /**
     //  * @return Gif[] Returns an array of Gif objects
     //  */

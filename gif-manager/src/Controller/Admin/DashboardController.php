@@ -43,7 +43,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Tags', 'fas fa-tags', Tag::class);
 
         yield MenuItem::section('Site');
-        yield MenuItem::linktoRoute('Le site', 'fas fa-tv', 'main_index');
+        yield MenuItem::linktoRoute('Le site', 'fas fa-tv', 'gif_index');
 
         yield MenuItem::section('Déconnexion');
         yield MenuItem::linkToLogout('Se déconnecter', 'fas fa-sign-out-alt');

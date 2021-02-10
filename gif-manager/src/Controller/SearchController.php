@@ -9,16 +9,15 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+
 class SearchController extends AbstractController
 {
     /**
-     * @Route("/search", name="search")
+     * @Route("/gifs/search", name="search_gif")
      */
-    public function index(): Response
+    public function search_gif(): Response
     {
-        return $this->render('search/index.html.twig', [
-            'controller_name' => 'SearchController',
-        ]);
+        return $this->render('search/index.html.twig');
     }
 
     /**
@@ -39,7 +38,7 @@ class SearchController extends AbstractController
             ])
             ->getForm();
 
-        return $this->render('search/searchForm.html.twig', [
+        return $this->render('search/gifs.html.twig', [
             'form' => $form->createView()
         ]);
     }
